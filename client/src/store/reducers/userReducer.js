@@ -7,13 +7,12 @@ const initialState = {
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'SET_AUTH_FALSE':
+    case 'SET_USER_DATA':
       return {
-        isAuth: action.payload,
-      };
-    case 'SET_AUTH_TRUE':
-      return {
-        isAuth: action.payload,
+        id: action.payload.id,
+        userName: action.payload.userName,
+        email: action.payload.email,
+        role: action.payload.role,
       };
     default:
       return state;

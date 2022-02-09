@@ -10,6 +10,7 @@ export const $authHost = axios.create({
 
 const authInterceptor = (config) => {
   config.headers.autorization = `Bearer ${localStorage.getItem('token')}`;
+  return config;
 };
 
 $authHost.interceptors.request.use(authInterceptor);

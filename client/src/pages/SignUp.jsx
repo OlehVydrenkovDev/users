@@ -1,8 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
+import { ADMIN_ROUTE } from '../utils/consts';
 import { registration } from '../http/userApi';
 
+import { setUserData } from '../store/actions/setUserData';
+import { setAuthTrue } from '../store/actions/setAuth';
+
 const SignUp = () => {
+  const dispatch = useDispatch();
+  const history = useNavigate();
   const createUser = async (e) => {
     e.preventDefault();
     const userName = e.target[0].value;
@@ -11,7 +20,9 @@ const SignUp = () => {
     const isAdmin = e.target[3].checked ? 'ADMIN' : 'USER';
 
     const user = await registration(userName, email, password, isAdmin);
-    console.log(user);
+    dispatch(setUserData(user));
+    dispatch(setAuthTrue());
+    history(ADMIN_ROUTE);
   };
 
   return (

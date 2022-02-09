@@ -1,0 +1,104 @@
+.header {
+  position: relative;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: #f7f7fc;
+  box-shadow: 0px 8px 16px rgba(17, 17, 17, 0.04);
+  &__left {
+    display: flex;
+    flex-direction: row;
+    .left__admin-avatar {
+      background: url('../../assets/admin-avatar.png');
+      width: 52px;
+      height: 52px;
+      margin-top: 14px;
+      border: none;
+      margin-left: 120px;
+      margin-right: 25px;
+    }
+    .left__user-avatar {
+      background: url('../../assets/user-avatar.png');
+      width: 52px;
+      height: 52px;
+      margin-top: 14px;
+      border: none;
+      margin-left: 120px;
+      margin-right: 25px;
+    }
+    .left__user-name {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 80px;
+      letter-spacing: 0.75px;
+      color: #14142b;
+    }
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: row;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 80px;
+    color: #4e4b66;
+    .right__profiles {
+      cursor: pointer;
+      margin-right: 44px;
+      .profiles__icon {
+        background: url('../../assets/profiles-icon.png');
+        width: 16px;
+        height: 20px;
+        display: inline-block;
+        margin-left: 11px;
+        line-height: 80px;
+      }
+    }
+
+    .right__dashboard {
+      cursor: pointer;
+      margin-right: 44px;
+      .dashboard__icon {
+        background: url('../../assets/dashboard-icon.png');
+        background-repeat: no-repeat;
+        width: 14px;
+        height: 14px;
+        display: inline-block;
+        margin-left: 11px;
+        line-height: 80px;
+      }
+    }
+
+    .right__users {
+      cursor: pointer;
+      margin-right: 44px;
+      .users__icon {
+        background: url('../../assets/users-icon.png');
+        background-repeat: no-repeat;
+        width: 20px;
+        height: 14px;
+        display: inline-block;
+        margin-left: 11px;
+        line-height: 80px;
+      }
+    }
+
+    .right__button {
+      width: 71px;
+      height: 28px;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+      letter-spacing: 0.75px;
+      border: none;
+      margin-right: 120px;
+      margin-top: 26px;
+      background: none;
+      color: #4e4b66;
+      cursor: pointer;
+    }
+  }
+}

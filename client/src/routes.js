@@ -1,22 +1,12 @@
 import AdminPanel from './pages/AdminPanel';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
-import UserPanel from './pages/UserPanel';
-import {
-  ADMIN_ROUTE,
-  USER_PANEL_ROUTE,
-  LOGIN_ROUTE,
-  REGISTRATION_ROUTE,
-} from './utils/consts';
+import { ADMIN_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE } from './utils/consts';
 
 export const authRoutes = [
   {
     path: ADMIN_ROUTE,
     Component: AdminPanel,
-  },
-  {
-    path: USER_PANEL_ROUTE,
-    Component: UserPanel,
   },
 ];
 

@@ -6,7 +6,6 @@ import { authRoutes, publickhRoutes } from '../routes.js';
 
 const AppRouter = () => {
   const isAuth = useSelector(({ isAuthReducer }) => isAuthReducer.isAuth);
-
   return (
     <>
       <Routes>
