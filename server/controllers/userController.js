@@ -42,6 +42,7 @@ class UserController {
       user.set({
         username: req.body.username,
         email: req.body.email,
+        profiles: req.body.profiles,
       });
 
       await user.save();

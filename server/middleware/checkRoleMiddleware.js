@@ -1,4 +1,4 @@
-const jwt = require('jsonwebtoken');
+/*const jwt = require('jsonwebtoken');
 
 module.exports = function (role) {
   return function (req, res, next) {
@@ -21,3 +21,4 @@ module.exports = function (role) {
     }
   };
 };
+*/

@@ -3,6 +3,7 @@ const initialState = {
   userName: '',
   email: '',
   role: '',
+  profiles: [],
 };
 
 const userReducer = (state = initialState, action) => {
@@ -13,6 +14,7 @@ const userReducer = (state = initialState, action) => {
         userName: action.payload.userName,
         email: action.payload.email,
         role: action.payload.role,
+        profiles: action.payload.profiles,
       };
     default:
       return state;

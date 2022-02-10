@@ -54,7 +54,7 @@ class AuthController {
     return res.json({ token });
   }
 
-  async checkAuth(req, res, next) {
+  async checkAuth(req, res) {
     const token = generateJwt(req.user.id, req.user.email, req.user.role);
     return res.json({ token });
   }

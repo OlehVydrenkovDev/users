@@ -7,22 +7,9 @@ const User = sequelize.define('user', {
   email: { type: DataTypes.STRING, unique: true },
   password: { type: DataTypes.STRING },
   role: { type: DataTypes.STRING, defaultValue: 'USER' },
-});
-
-const Profile = sequelize.define('profiles', {
-  name: { type: DataTypes.INTEGER },
-  gender: { type: DataTypes.STRING },
-  birthdate: { type: DataTypes.STRING },
-  city: { type: DataTypes.STRING },
-});
-
-const Role = sequelize.define('profiles', {
-  id: { type: DataTypes.INTEGER, primaryKey: true },
-  name: { type: DataTypes.STRING },
+  profiles: { type: DataTypes.ARRAY(DataTypes.JSON), defaultValue: [] },
 });
 
 module.exports = {
   User,
-  Profile,
-  Role,
 };

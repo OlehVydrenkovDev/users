@@ -20,6 +20,7 @@ const SignUp = () => {
     const isAdmin = e.target[3].checked ? 'ADMIN' : 'USER';
 
     const user = await registration(userName, email, password, isAdmin);
+
     dispatch(setUserData(user));
     dispatch(setAuthTrue());
     history(ADMIN_ROUTE);

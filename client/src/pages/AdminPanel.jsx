@@ -1,8 +1,29 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
+import Profiles from '../components/Profiles';
+import Dashboard from '../components/Dashboard';
+import Users from '../components/Users';
+
+import { setAuthFalse } from '../store/actions/setAuth';
+import { setOpenPanel } from '../store/actions/setOpenPanel';
+import { LOGIN_ROUTE } from '../utils/consts';
+import AdminTopPanel from '../components/AdminTopPanel';
 
 const AdminPanel = () => {
+  const dispatch = useDispatch();
+  const history = useNavigate();
   let role = useSelector((state) => state.userReducer.role);
+  let userName = useSelector((state) => state.userReducer.userName);
+  let openPanel = useSelector((state) => state.openPanelReducer.openPanel);
+
+  const handleLogOut = () => {
+    dispatch(setAuthFalse());
+    dispatch(setOpenPanel('profiles'));
+    history(LOGIN_ROUTE);
+    localStorage.removeItem('token');
+  };
   return (
     <>
       <header className="header">
@@ -13,31 +34,43 @@ const AdminPanel = () => {
             <span className="left__user-avatar"></span>
           )}
 
-          <p className="left__user-name">UserName</p>
+          <p className="left__user-name">{userName}</p>
         </div>
 
         <div className="header__right">
-          {role === 'ADMIN' && (
-            <>
-              <div className="right__profiles">
-                Profiles
-                <span className="profiles__icon"></span>
-              </div>
+          {role === 'ADMIN' && <AdminTopPanel />}
 
-              <div className="right__dashboard">
-                Dashboard
-                <span className="dashboard__icon"></span>
-              </div>
-              <div className="right__users">
-                Users
-                <span className="users__icon"></span>
-              </div>
-            </>
-          )}
-
-          <input type="button" className="right__button" value="Log out" />
+          <input
+            type="button"
+            className="right__button"
+            onClick={() => handleLogOut()}
+            value="Log out"
+          />
         </div>
       </header>
+
+      <div className="main-container">
+        {role === 'USER' && (
+          <>
+            <Profiles />
+          </>
+        )}
+        {role === 'ADMIN' && openPanel === 'profiles' && (
+          <>
+            <Profiles />
+          </>
+        )}
+        {role === 'ADMIN' && openPanel === 'dashboard' && (
+          <>
+            <Dashboard />
+          </>
+        )}
+        {role === 'ADMIN' && openPanel === 'users' && (
+          <>
+            <Users />
+          </>
+        )}
+      </div>
     </>
   );
 };
