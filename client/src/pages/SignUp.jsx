@@ -11,7 +11,8 @@ import { setAuthTrue } from '../store/actions/setAuth';
 
 const SignUp = () => {
   const dispatch = useDispatch();
-  const history = useNavigate();
+  const navigate = useNavigate();
+
   const createUser = async (e) => {
     e.preventDefault();
     const userName = e.target[0].value;
@@ -23,7 +24,7 @@ const SignUp = () => {
 
     dispatch(setUserData(user));
     dispatch(setAuthTrue());
-    history(ADMIN_ROUTE);
+    navigate(ADMIN_ROUTE);
   };
 
   return (

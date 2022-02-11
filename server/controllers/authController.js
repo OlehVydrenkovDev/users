@@ -33,7 +33,13 @@ class AuthController {
       role,
       password: hashPassword,
     });
-    const token = generateJwt(user.id, user.email, user.role, user.userName);
+    const token = generateJwt(
+      user.id,
+      user.email,
+      user.role,
+      user.userName,
+      []
+    );
     return res.json({ token });
   }
 

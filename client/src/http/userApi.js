@@ -33,7 +33,21 @@ export const check = async () => {
   return jwt_decode(data.token);
 };
 
+export const addProfile = async (id, profiles) => {
+  const { data } = await $host.put('api/user/users/' + id, {
+    id,
+    profiles,
+  });
+
+  return data;
+};
+
 export const fetchUser = async (id) => {
   const userData = await $host.get('api/user/users/' + id);
   return userData;
+};
+
+export const fetchUsers = async () => {
+  const { data } = await $host.get('api/user/users/').then((data) => data);
+  return data;
 };

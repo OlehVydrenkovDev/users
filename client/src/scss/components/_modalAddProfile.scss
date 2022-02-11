@@ -3,40 +3,104 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: calc(100vh + 80px);
 
   background-color: rgba(0, 0, 0, 0.2);
-}
-
-.modal__content {
-  position: absolute;
-  display: flex;
-  width: 600px;
-  height: 575px;
-  margin: auto;
-  border: 1px solid #d6d8e7;
-  border-radius: 16px;
-
-  background: #ffffff;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  .content__modal-profile {
+  .modal__content {
+    position: absolute;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    width: 600px;
+    height: 575px;
     margin: auto;
+    border: 1px solid #d6d8e7;
+    border-radius: 16px;
+
+    background: #ffffff;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    .content__modal-profile {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+      width: 250px;
+    }
   }
 }
 
 .modal-profile__label {
   font-size: 18px;
   line-height: 27px;
-
   letter-spacing: 0.75px;
   margin-right: auto;
+  margin-top: 25px;
+  text-align: left;
 
   color: #6e7191;
+}
+
+.modal-profile__input {
+  width: 250px;
+  outline: 0;
+  border-color: #14142b;
+  border-width: 0 0 1px;
+  font-size: 24px;
+  line-height: 36px;
+  letter-spacing: 0.75px;
+
+  color: #14142b;
+}
+
+.gender {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+}
+
+.checkboxes {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 250px;
+  label {
+    width: 125px;
+  }
+  input {
+    margin-right: 13px;
+  }
+}
+
+.modal-profile__buttons {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 250px;
+  margin-top: 50px;
+
+  .buttons__add-profile,
+  .buttons__close-profile {
+    width: 100px;
+    height: 38px;
+
+    background: #eff0f6;
+    border-radius: 9px;
+    border: none;
+    margin: 0;
+    cursor: pointer;
+  }
+  .close {
+    background: url('../../assets/close-icon.png') no-repeat center / contain
+      #eff0f6;
+    background-size: 13px;
+  }
+  .submit {
+    background: url('../../assets//confirm-icon.png') no-repeat center / contain
+      #eff0f6;
+    background-size: 16px;
+  }
 }

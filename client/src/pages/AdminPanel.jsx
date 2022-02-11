@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
+import AdminTopPanel from '../components/AdminTopPanel';
 import Profiles from '../components/Profiles';
 import Dashboard from '../components/Dashboard';
 import Users from '../components/Users';
@@ -9,7 +10,6 @@ import Users from '../components/Users';
 import { setAuthFalse } from '../store/actions/setAuth';
 import { setOpenPanel } from '../store/actions/setOpenPanel';
 import { LOGIN_ROUTE } from '../utils/consts';
-import AdminTopPanel from '../components/AdminTopPanel';
 
 const AdminPanel = () => {
   const dispatch = useDispatch();
